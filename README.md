@@ -3,7 +3,7 @@
 ![version](https://img.shields.io/badge/version-0.0.1-success)
 ![deno version](https://img.shields.io/badge/deno-1.6.0-success)
 
-> A TCP Socket library for Deno
+> TCP socket library for Deno
 
 # Getting Started
 
