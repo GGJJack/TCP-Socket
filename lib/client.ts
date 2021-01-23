@@ -10,6 +10,7 @@ export class Client extends EventEmitter {
   constructor(options?: SocketOption) {
     super();
     this.options = {
+	  hostname: options?.hostname,
       port: options?.port || 8080,
       transport: options?.transport || "tcp",
       chunkSize: options?.chunkSize || 1024 * 1024
