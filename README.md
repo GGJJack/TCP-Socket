@@ -10,9 +10,9 @@
 ## Import
 
 ```TypeScript
-import { Server } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
+import { Server } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 // or
-import { Client } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
+import { Client } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 ```
 
 ## Basic
@@ -20,7 +20,7 @@ import { Client } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
 ### Server
 
 ```TypeScript
-import { Server } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
+import { Server } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 
 const server = new Server({ port: 8080 });
 await server.listen();
@@ -29,7 +29,7 @@ await server.listen();
 ### Client
 
 ```TypeScript
-import { Client, Event, Packet } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
+import { Client, Event, Packet } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 
 const client = new Client({ hostname: "127.0.0.1", port: 8080 });
 await client.connect();
@@ -84,7 +84,7 @@ server.broadcast("Hello", [client]) //Ignore broadcast
 ## Client
 
 ```TypeScript
-import { Client, Packet, Event } from "https://deno.land/x/TCPSocket@0.0.1/mod.ts";
+import { Client, Packet, Event } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 
 const client = new Client({ hostname: "127.0.0.1", port: 8080 });
 
