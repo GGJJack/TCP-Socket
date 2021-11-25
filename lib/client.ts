@@ -65,7 +65,12 @@ export class Client extends EventEmitter {
   }
 
   async write(data: Uint8Array | string | Packet): Promise<number> {
+    try {
 	let write = await this.conn?.write(new Packet(data).toData());
 	return Promise.resolve(<number>write)
+    } catch (e) {
+        this.emit(Event.error, this, e);
+        this.close();
+    }
   }
 }
