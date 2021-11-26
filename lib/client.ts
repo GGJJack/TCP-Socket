@@ -10,7 +10,7 @@ export class Client extends EventEmitter {
   constructor(options?: SocketOption) {
     super();
     this.options = {
-	  hostname: options?.hostname,
+      hostname: options?.hostname,
       port: options?.port || 8080,
       transport: options?.transport || "tcp",
       chunkSize: options?.chunkSize || 1024 * 1024
@@ -37,7 +37,7 @@ export class Client extends EventEmitter {
 
   info(): string {
     if (this.conn?.remoteAddr as Deno.NetAddr) {
-      let remote = <Deno.NetAddr> this.conn?.remoteAddr;
+      let remote = <Deno.NetAddr>this.conn?.remoteAddr;
       return `[${remote.transport}] ${remote.hostname}:${remote.port} { isOpen: ${this.isOpen} }`;
     } else {
       return JSON.stringify(this.conn);
@@ -48,11 +48,11 @@ export class Client extends EventEmitter {
     try {
       this.isOpen = true;
       this.conn = conn;
-	  this.emit(Event.connect, this);
+      this.emit(Event.connect, this);
 
-	  for await (const buffer of Deno.iter(conn, {bufSize: this.options.chunkSize!})) {
-		  this.emit(Event.receive, this, new Packet(buffer), buffer.length)
-	  }
+      for await (const buffer of Deno.iter(conn, { bufSize: this.options.chunkSize! })) {
+        this.emit(Event.receive, this, new Packet(buffer), buffer.length)
+      }
       this.close();
     } catch (e) {
       if (e instanceof Deno.errors.BadResource) {
@@ -66,11 +66,11 @@ export class Client extends EventEmitter {
 
   async write(data: Uint8Array | string | Packet): Promise<number> {
     try {
-	let write = await this.conn?.write(new Packet(data).toData());
-	return Promise.resolve(<number>write)
+      let write = await this.conn?.write(new Packet(data).toData());
+      return Promise.resolve(<number>write)
     } catch (e) {
-        this.emit(Event.error, this, e);
-        this.close();
+      this.emit(Event.error, this, e);
+      this.close();
     }
   }
 }
