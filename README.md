@@ -1,6 +1,6 @@
 # Deno base TCP Socket library
 
-![version](https://img.shields.io/badge/version-0.0.1-success)
+![version](https://img.shields.io/badge/version-0.0.2-success)
 ![deno version](https://img.shields.io/badge/deno-1.6.0-success)
 
 > TCP socket library for Deno
@@ -10,9 +10,9 @@
 ## Import
 
 ```TypeScript
-import { Server } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
+import { Server } from "https://deno.land/x/tcp_socket@0.0.2/mods.ts";
 // or
-import { Client } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
+import { Client } from "https://deno.land/x/tcp_socket@0.0.2/mods.ts";
 ```
 
 ## Basic
@@ -20,7 +20,7 @@ import { Client } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
 ### Server
 
 ```TypeScript
-import { Server } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
+import { Server } from "https://deno.land/x/tcp_socket@0.0.2/mods.ts";
 
 const server = new Server({ port: 8080 });
 await server.listen();
@@ -29,9 +29,9 @@ await server.listen();
 ### Client
 
 ```TypeScript
-import { Client, Event, Packet } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
+import { Client, Event, Packet } from "https://deno.land/x/tcp_socket@0.0.2/mods.ts";
 
-const client = new Client({ hostname: "127.0.0.1", port: 8080 });
+const client = new Client({ hostname: "127.0.0.2", port: 8080 });
 await client.connect();
 await client.write("Hello World!");
 ```
@@ -84,9 +84,9 @@ server.broadcast("Hello", [client]) //Ignore broadcast
 ## Client
 
 ```TypeScript
-import { Client, Packet, Event } from "https://deno.land/x/tcp_socket@0.0.1/mods.ts";
+import { Client, Packet, Event } from "https://deno.land/x/tcp_socket@0.0.2/mods.ts";
 
-const client = new Client({ hostname: "127.0.0.1", port: 8080 });
+const client = new Client({ hostname: "127.0.0.2", port: 8080 });
 
 // Connection open
 client.on(Event.connect, (client: Client) => {
